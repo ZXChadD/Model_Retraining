@@ -4,7 +4,7 @@ from PIL import Image
 from pascal_voc_writer import Writer
 import numpy as np
 
-cifar10_path = '../cifar-10-batches-py'
+cifar10_path = 'cifar-10-batches-py'
 width_of_original_image = 32
 height_of_original_image = 32
 max_img_on_bg = 20
@@ -42,7 +42,7 @@ def create_training_data():
             bg_id) + '.jpg', 256, 256)
 
     file = open(
-        "/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/test_ground/" + str(
+        "/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/ground_truths/" + str(
             bg_id) + ".txt", "w")
 
     for x in range(0, max_images):
@@ -55,13 +55,13 @@ def create_training_data():
         # once the desired number of images have been placed on the background, create a new background
         if img_on_bg > max_img_on_bg or x == max_images - 1:
             bg.save(
-                '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/new_data/test/' + str(
+                '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/test/' + str(
                     bg_id) + '.jpg', 'JPEG')
             img_on_bg = 1
 
             ####### save pascal voc file #######
             writer.save(
-                '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/new_data/test/' + str(
+                '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/test/' + str(
                     bg_id) + '.xml')
 
             file.close()
@@ -74,12 +74,12 @@ def create_training_data():
 
                 ####### initialise a writer to create pascal voc file #######
                 writer = Writer(
-                    '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/new_data/test/' + str(
+                    '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/test/' + str(
                         bg_id) + '.jpg', 256, 256)
 
                 ####### initialise a writer to create TXT file #######
                 file = open(
-                    "/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/new_data/ground_truths/" + str(
+                    "/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/ground_truths/" + str(
                         bg_id) + ".txt", "w")
 
         img_w, img_h = resized_image.size
@@ -110,7 +110,6 @@ def create_training_data():
                 maxv = np.amax(noisy_image)
                 new_image = (255 * (noisy_image - minv) / (maxv - minv)).astype(np.uint8)
                 resized_image = Image.fromarray(new_image)
-
 
                 # place the image on the background
                 bg.paste(resized_image, (x1, 256 - y1))
@@ -168,6 +167,7 @@ def check_for_overlaps(all_images, new_image):
 
     return False
 
+
 # gausian noise
 def noisy(image):
     row, col, ch = image.shape
@@ -177,6 +177,7 @@ def noisy(image):
     gauss = np.random.normal(mean, 10, (row, col, ch))
     noisy = image + gauss
     return noisy
+
 
 # helper function to check if the axes of the images overlap
 def is_overlapping(image1, image2):
