@@ -1,0 +1,32 @@
+item {
+name: "airplane"
+id: 1
+}
+item {
+name: "automobile"
+id: 2
+}
+item {
+name: "bird"
+id: 3
+}
+item {
+name: "cat"
+id: 4
+}
+item {
+name: "deer"
+id: 5
+}
+item {
+name: "dog"
+id: 6
+}
+item {
+name: "frog"
+id: 7
+}
+item {
+name: "ship"
+id: 9
+}

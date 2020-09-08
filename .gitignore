@@ -1,0 +1,10 @@
+*DS_Store
+*idea/
+utilites/
+images/
+detected_images/
+archive/
+checkpoints/
+scripts/cifar-10-batches-py/
+mycreds.txt
+client_secrets.json
