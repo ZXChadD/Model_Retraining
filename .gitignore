@@ -6,5 +6,6 @@ detected_images/
 archive/
 checkpoints/
 scripts/cifar-10-batches-py/
+try/
 mycreds.txt
 client_secrets.json

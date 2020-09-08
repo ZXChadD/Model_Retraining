@@ -8,18 +8,69 @@ cifar10_path = 'cifar-10-batches-py'
 width_of_original_image = 32
 height_of_original_image = 32
 max_img_on_bg = 20
-start_image = 4000
-max_images = 5000
 
 
 def main():
+    filenames = {
+        'expert':
+            {
+                'batch_id': [1],
+                'number_of_images': 4000
+            },
+        'expert_validation':
+            {
+                'batch_id': [1],
+                'number_of_images': 1000
+            },
+        'train':
+            {
+                'batch_id': [2, 3, 4, 5],
+                'number_of_images': 36000
+            },
+        'train_validation':
+            {
+                'batch_id': [5],
+                'number_of_images': 9000
+            },
+
+    }
+    image_used = {
+        '1': {
+            'count': 0
+        },
+        '2': {
+            'count': 0
+        },
+        '3': {
+            'count': 0
+        },
+        '4': {
+            'count': 0
+        },
+        '5': {
+            'count': 0
+        },
+    }
+
+    for file in filenames:
+        for overall_id in range(0, int(filenames[file]['number_of_images']/20)):
+            which_batch_id = 0
+            batch_id = filenames[file]['batch_id'][which_batch_id]
+            image_id = image_used[str(batch_id)]['count']
+            if image_id < 10000:
+                create_training_data(file, batch_id, image_id, overall_id)
+                print(overall_id)
+                print(image_id)
+                image_used[str(batch_id)]['count'] = image_id + 20
+            else:
+                which_batch_id += 1
+
     create_training_data()
 
 
-def create_training_data():
-    images, labels = load_cfar10_batch(cifar10_path, 1)
-    img_on_bg = 1
-    bg_id = 0
+def create_training_data(filename, batch_id, image_id, overall_id):
+    images, labels = load_cfar10_batch(cifar10_path, batch_id)
+    img_on_bg = 0
 
     # list of all images that have been placed on the background
     all_images = []
@@ -39,39 +90,22 @@ def create_training_data():
 
     ####### initialise a writer to create a pascal voc file #######
     writer = Writer(
-        '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/expert_validation/' + str(
-            bg_id) + '.jpg', 256, 256)
+        '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/try/' + filename + '/' + str(
+            overall_id) + '.jpg', 256, 256)
 
-    for x in range(start_image, max_images):
-        print("Image Number: " + str(x))
+    # once the desired number of images have been placed on the background, create a new background
+    while img_on_bg < max_img_on_bg:
+
+        current_id = image_id + img_on_bg
+
+        # print("Batch Number: " + str(batch_id))
+        # print("Image Number: " + str(current_id))
         label_names = load_label_names()
-        name_of_object = label_names[labels[x]]
-        print(name_of_object)
-        resized_image = resize_image(images[x])
-
-        # once the desired number of images have been placed on the background, create a new background
-        if img_on_bg > max_img_on_bg or x == max_images - 1:
-            bg.save(
-                '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/expert_validation/' + str(
-                    bg_id) + '.jpg', 'JPEG')
-            img_on_bg = 1
-
-            ####### save pascal voc file #######
-            writer.save(
-                '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/expert_validation/' + str(
-                    bg_id) + '.xml')
-            bg_id += 1
-
-            bg = Image.new('RGB', (256, 256), (0, 0, 0))
-            all_images = []
-            excluded_coordinates = set()
-
-            ####### initialise a writer to create a pascal voc file #######
-            writer = Writer(
-                '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/expert_validation/' + str(
-                    bg_id) + '.jpg', 256, 256)
-
+        name_of_object = label_names[labels[current_id]]
+        # print(name_of_object)
+        resized_image = resize_image(images[current_id])
         img_w, img_h = resized_image.size
+
 
         while True:
 
@@ -121,6 +155,14 @@ def create_training_data():
                         excluded_coordinates.add(coordinates)
 
                 break
+    bg.save(
+        '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/try/' + filename + '/' + str(
+            overall_id) + '.jpg', 'JPEG')
+
+    ####### save pascal voc file #######
+    writer.save(
+        '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/try/' + filename + '/' + str(
+            overall_id) + '.xml')
 
 
 # load the cifar dataset

@@ -3,26 +3,31 @@ import pathlib
 import sys
 import tensorflow as tf
 from PIL import Image
+from pascal_voc_writer import Writer
 import os.path
 import ntpath
 
 # sys.path.append("/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/tf/research")
-save_path = "/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/detected_images/new/expert_res2"
+save_path = "/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/detected_images/lowerbound_train"
 
 from object_detection.utils import ops as utils_ops
 from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as vis_util
 
 # List of the strings that is used to add correct label for each box.
-PATH_TO_LABELS = 'annotations/new_annotations/label_map.pbtxt'
+PATH_TO_LABELS = 'annotations/label_map.pbtxt'
 category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS, use_display_name=True)
-PATH_TO_TEST_IMAGES_DIR = pathlib.Path("images/new_data/test")
+PATH_TO_TEST_IMAGES_DIR = pathlib.Path("images/test")
 TEST_IMAGE_PATHS = list(PATH_TO_TEST_IMAGES_DIR.glob("*.jpg"))
 
 
 def main():
     model = load_model()
     count = 0
+    ####### initialise a writer to create a pascal voc file #######
+    writer = Writer(
+        '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/detected_images/retraining/' + filename + '/' + str(
+            count) + '.jpg', 256, 256)
     for image_path in TEST_IMAGE_PATHS:
         show_inference(model, image_path)
         count += 1
@@ -30,7 +35,7 @@ def main():
 
 
 def load_model():
-    model_dir = "my_models/new_models/checkpoint_expert_res2/exported_model/saved_model"
+    model_dir = "checkpoints/lowerbound/exported_models/saved_model"
     model = tf.saved_model.load(str(model_dir))
     return model
 

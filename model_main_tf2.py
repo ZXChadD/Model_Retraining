@@ -28,11 +28,8 @@ python model_main_tf2.py -- \
   --alsologtostderr
 """
 from absl import flags
-
 import tensorflow.compat.v2 as tf
 from object_detection import model_lib_v2
-
-tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.INFO)
 
 flags.DEFINE_string('pipeline_config_path', None, 'Path to pipeline config '
                     'file.')
