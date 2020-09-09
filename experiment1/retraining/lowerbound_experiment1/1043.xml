@@ -1,0 +1,125 @@
+<annotation>
+    <folder>train</folder>
+    <filename>1043.jpg</filename>
+    <path>/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/train/1043.jpg</path>
+    <source>
+        <database>Unknown</database>
+    </source>
+    <size>
+        <width>256</width>
+        <height>256</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>deer</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>91.04450225830078</xmin>
+            <ymin>160.9661865234375</ymin>
+            <xmax>106.91680145263672</xmax>
+            <ymax>176.7945556640625</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>frog</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>85.05070495605469</xmin>
+            <ymin>101.28836822509766</ymin>
+            <xmax>113.99693298339844</xmax>
+            <ymax>130.15943908691406</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>frog</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>6.989405632019043</xmin>
+            <ymin>197.8413543701172</ymin>
+            <xmax>33.21486282348633</xmax>
+            <ymax>223.8470001220703</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>deer</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>214.04150390625</xmin>
+            <ymin>118.01727294921875</ymin>
+            <xmax>235.80169677734375</xmax>
+            <ymax>139.87210083007812</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>ship</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>209.90869140625</xmin>
+            <ymin>45.374046325683594</ymin>
+            <xmax>228.792724609375</xmax>
+            <ymax>64.01410675048828</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>dog</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>150.232421875</xmin>
+            <ymin>93.27925109863281</ymin>
+            <xmax>171.97833251953125</xmax>
+            <ymax>115.17149353027344</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>automobile</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>27.278263092041016</xmin>
+            <ymin>18.159610748291016</ymin>
+            <xmax>53.043643951416016</xmax>
+            <ymax>43.82902526855469</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>automobile</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>60.12525939941406</xmin>
+            <ymin>54.15546417236328</ymin>
+            <xmax>95.32957458496094</xmax>
+            <ymax>89.1364974975586</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>cat</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>44.22484588623047</xmin>
+            <ymin>146.16758728027344</ymin>
+            <xmax>75.90010833740234</xmax>
+            <ymax>177.95533752441406</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>dog</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>3.652949333190918</xmin>
+            <ymin>148.92398071289062</ymin>
+            <xmax>34.7687873840332</xmax>
+            <ymax>180.88638305664062</ymax>
+        </bndbox>
+    </object>
+</annotation>

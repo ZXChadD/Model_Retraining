@@ -1,0 +1,147 @@
+<annotation>
+    <folder>train</folder>
+    <filename>948.jpg</filename>
+    <path>/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/train/948.jpg</path>
+    <source>
+        <database>Unknown</database>
+    </source>
+    <size>
+        <width>256</width>
+        <height>256</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>airplane</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>136.10037231445312</xmin>
+            <ymin>68.92910766601562</ymin>
+            <xmax>151.91766357421875</xmax>
+            <ymax>84.78074645996094</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>deer</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>155.10025024414062</xmin>
+            <ymin>179.05862426757812</ymin>
+            <xmax>184.14614868164062</xmax>
+            <ymax>207.82272338867188</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>ship</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>72.12835693359375</xmin>
+            <ymin>139.17153930664062</ymin>
+            <xmax>103.67793273925781</xmax>
+            <ymax>170.99786376953125</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>airplane</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>3.207029342651367</xmin>
+            <ymin>74.23363494873047</ymin>
+            <xmax>22.00038719177246</xmax>
+            <ymax>93.01819610595703</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>ship</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>50.070068359375</xmin>
+            <ymin>40.96797561645508</ymin>
+            <xmax>68.8388671875</xmax>
+            <ymax>59.96573257446289</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>airplane</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>70.1827392578125</xmin>
+            <ymin>10.099746704101562</ymin>
+            <xmax>101.75892639160156</xmax>
+            <ymax>41.779361724853516</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>cat</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>60.97720718383789</xmin>
+            <ymin>182.4355926513672</ymin>
+            <xmax>80.09109497070312</xmax>
+            <ymax>200.9414825439453</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>deer</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>197.1879425048828</xmin>
+            <ymin>66.91654968261719</ymin>
+            <xmax>234.70472717285156</xmax>
+            <ymax>104.98844909667969</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>cat</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>199.0276336669922</xmin>
+            <ymin>189.91554260253906</ymin>
+            <xmax>218.02320861816406</xmax>
+            <ymax>209.01719665527344</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>ship</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>146.0496826171875</xmin>
+            <ymin>10.072956085205078</ymin>
+            <xmax>171.96566772460938</xmax>
+            <ymax>35.86377716064453</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>dog</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>148.63079833984375</xmin>
+            <ymin>96.99662780761719</ymin>
+            <xmax>185.98507690429688</xmax>
+            <ymax>134.8085174560547</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>dog</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>18.170406341552734</xmin>
+            <ymin>145.27450561523438</ymin>
+            <xmax>50.108890533447266</xmax>
+            <ymax>176.70916748046875</ymax>
+        </bndbox>
+    </object>
+</annotation>

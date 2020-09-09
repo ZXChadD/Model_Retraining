@@ -1,0 +1,92 @@
+<annotation>
+    <folder>train</folder>
+    <filename>1091.jpg</filename>
+    <path>/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/train/1091.jpg</path>
+    <source>
+        <database>Unknown</database>
+    </source>
+    <size>
+        <width>256</width>
+        <height>256</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>deer</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>34.37325668334961</xmin>
+            <ymin>36.18213653564453</ymin>
+            <xmax>72.13859558105469</xmax>
+            <ymax>73.92838287353516</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>deer</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>9.046231269836426</xmin>
+            <ymin>14.022558212280273</ymin>
+            <xmax>27.896045684814453</xmax>
+            <ymax>33.04882049560547</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>frog</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>106.04681396484375</xmin>
+            <ymin>192.9952850341797</ymin>
+            <xmax>140.87925720214844</xmax>
+            <ymax>227.96299743652344</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>frog</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>81.08869934082031</xmin>
+            <ymin>163.0251922607422</ymin>
+            <xmax>102.854736328125</xmax>
+            <ymax>184.84706115722656</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>airplane</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>200.95980834960938</xmin>
+            <ymin>156.43569946289062</ymin>
+            <xmax>239.0716552734375</xmax>
+            <ymax>194.26412963867188</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>frog</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>151.54891967773438</xmin>
+            <ymin>71.20880126953125</ymin>
+            <xmax>185.90921020507812</xmax>
+            <ymax>106.271484375</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>deer</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>50.07829284667969</xmin>
+            <ymin>165.08323669433594</ymin>
+            <xmax>65.96649169921875</xmax>
+            <ymax>180.9799346923828</ymax>
+        </bndbox>
+    </object>
+</annotation>

@@ -24,7 +24,7 @@ def main():
             },
         'train':
             {
-                'batch_id': [2, 3, 4, 5],
+                'batch_id': [1, 2, 3, 4, 5],
                 'number_of_images': 36000
             },
         'train_validation':
@@ -52,11 +52,14 @@ def main():
         },
     }
 
+    which_batch_id = 0
+
     for file in filenames:
+        print(file)
         for overall_id in range(0, int(filenames[file]['number_of_images']/20)):
-            which_batch_id = 0
             batch_id = filenames[file]['batch_id'][which_batch_id]
             image_id = image_used[str(batch_id)]['count']
+            print(image_id)
             if image_id < 10000:
                 create_training_data(file, batch_id, image_id, overall_id)
                 print(overall_id)
@@ -64,6 +67,12 @@ def main():
                 image_used[str(batch_id)]['count'] = image_id + 20
             else:
                 which_batch_id += 1
+                batch_id = filenames[file]['batch_id'][which_batch_id]
+                image_id = image_used[str(batch_id)]['count']
+                create_training_data(file, batch_id, image_id, overall_id)
+                print(overall_id)
+                print(image_id)
+                image_used[str(batch_id)]['count'] = image_id + 20
 
     create_training_data()
 

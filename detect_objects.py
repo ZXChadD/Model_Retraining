@@ -6,6 +6,7 @@ from PIL import Image
 from pascal_voc_writer import Writer
 import os.path
 import ntpath
+import re
 
 # sys.path.append("/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/tf/research")
 save_path = "/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/detected_images/lowerbound_train"
@@ -17,30 +18,33 @@ from object_detection.utils import visualization_utils as vis_util
 # List of the strings that is used to add correct label for each box.
 PATH_TO_LABELS = 'annotations/label_map.pbtxt'
 category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS, use_display_name=True)
-PATH_TO_TEST_IMAGES_DIR = pathlib.Path("images/test")
+PATH_TO_TEST_IMAGES_DIR = pathlib.Path("images/train")
 TEST_IMAGE_PATHS = list(PATH_TO_TEST_IMAGES_DIR.glob("*.jpg"))
 
 
 def main():
     model = load_model()
-    count = 0
     ####### initialise a writer to create a pascal voc file #######
-    writer = Writer(
-        '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/detected_images/retraining/' + filename + '/' + str(
-            count) + '.jpg', 256, 256)
+    total_count = 0
     for image_path in TEST_IMAGE_PATHS:
-        show_inference(model, image_path)
-        count += 1
-        print(count)
+        print(image_path)
+        count = re.findall(r'[^\/]+(?=\.)', str(image_path))
+        writer = Writer(
+            '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/train/' +
+                count[0] + '.jpg', 256, 256)
+        show_inference(model, image_path, writer, count[0])
+        print(total_count)
+        total_count += 1
+        print(count[0])
 
 
 def load_model():
-    model_dir = "checkpoints/lowerbound/exported_models/saved_model"
+    model_dir = "checkpoints/lowerbound_1/exported_models/saved_model"
     model = tf.saved_model.load(str(model_dir))
     return model
 
 
-def show_inference(model, image_path):
+def show_inference(model, image_path, writer, count):
     # the array based representation of the image will be used later in order to prepare the
     # result image with boxes and labels on it.
     image_np = np.array(Image.open(image_path))
@@ -67,6 +71,10 @@ def show_inference(model, image_path):
             detection_score = output_dict['detection_scores'][x]
             line_of_text = "%s %s %s %s %s %s\n" % (label_name, detection_score, xmin, ymin, xmax, ymax)
             file.write(line_of_text)
+
+        if output_dict['detection_scores'][x] > 0.5:
+            writer.addObject(label_name, xmin, ymin, xmax, ymax)
+    writer.save('/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/detected_images/retraining/lowerbound_train_xml/' + str(count) + '.xml')
 
     file.close()
 
