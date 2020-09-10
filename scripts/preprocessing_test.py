@@ -38,11 +38,11 @@ def create_training_data():
 
     ####### initialise a writer to create pascal voc file #######
     writer = Writer(
-        '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/test/' + str(
+        '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/try/test/' + str(
             bg_id) + '.jpg', 256, 256)
 
     file = open(
-        "/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/ground_truths/" + str(
+        "/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/try/ground_truths/" + str(
             bg_id) + ".txt", "w")
 
     for x in range(0, max_images):
@@ -55,13 +55,13 @@ def create_training_data():
         # once the desired number of images have been placed on the background, create a new background
         if img_on_bg > max_img_on_bg or x == max_images - 1:
             bg.save(
-                '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/test/' + str(
+                '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/try/test/' + str(
                     bg_id) + '.jpg', 'JPEG')
             img_on_bg = 1
 
             ####### save pascal voc file #######
             writer.save(
-                '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/test/' + str(
+                '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/try/test/' + str(
                     bg_id) + '.xml')
 
             file.close()
@@ -74,12 +74,12 @@ def create_training_data():
 
                 ####### initialise a writer to create pascal voc file #######
                 writer = Writer(
-                    '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/test/' + str(
+                    '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/try/test/' + str(
                         bg_id) + '.jpg', 256, 256)
 
                 ####### initialise a writer to create TXT file #######
                 file = open(
-                    "/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/ground_truths/" + str(
+                    "/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/try/ground_truths/" + str(
                         bg_id) + ".txt", "w")
 
         img_w, img_h = resized_image.size
