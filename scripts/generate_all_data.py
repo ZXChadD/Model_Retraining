@@ -52,23 +52,29 @@ def main():
         },
     }
 
+    which_batch_id = 0
+
     for file in filenames:
-        which_batch_id = 0
-        print("File name: " + file)
-        for overall_id in range(0, int(filenames[file]['number_of_images'] / 20)):
+        print(file)
+        for overall_id in range(0, int(filenames[file]['number_of_images']/20)):
             batch_id = filenames[file]['batch_id'][which_batch_id]
             image_id = image_used[str(batch_id)]['count']
-            print("Batch id: " + str(batch_id))
-            print("Image id: " + str(overall_id))
+            print(image_id)
             if image_id < 10000:
                 create_training_data(file, batch_id, image_id, overall_id)
+                print(overall_id)
+                print(image_id)
                 image_used[str(batch_id)]['count'] = image_id + 20
             else:
                 which_batch_id += 1
                 batch_id = filenames[file]['batch_id'][which_batch_id]
                 image_id = image_used[str(batch_id)]['count']
                 create_training_data(file, batch_id, image_id, overall_id)
+                print(overall_id)
+                print(image_id)
                 image_used[str(batch_id)]['count'] = image_id + 20
+
+    create_training_data()
 
 
 def create_training_data(filename, batch_id, image_id, overall_id):
@@ -108,6 +114,7 @@ def create_training_data(filename, batch_id, image_id, overall_id):
         # print(name_of_object)
         resized_image = resize_image(images[current_id])
         img_w, img_h = resized_image.size
+
 
         while True:
 
@@ -205,7 +212,7 @@ def noisy(image):
     mean = 1
     # var = 0.1
     # sigma = var ** 0.5
-    gauss = np.random.normal(mean, 5, (row, col, ch))
+    gauss = np.random.normal(mean, 10, (row, col, ch))
     noisy = image + gauss
     return noisy
 

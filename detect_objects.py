@@ -9,7 +9,7 @@ import ntpath
 import re
 
 # sys.path.append("/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/tf/research")
-save_path = "/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/detected_images/upperbound_test"
+save_path = "/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/detected_images/lowerbound_train"
 
 from object_detection.utils import ops as utils_ops
 from object_detection.utils import label_map_util
@@ -18,7 +18,7 @@ from object_detection.utils import visualization_utils as vis_util
 # List of the strings that is used to add correct label for each box.
 PATH_TO_LABELS = 'annotations/label_map.pbtxt'
 category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS, use_display_name=True)
-PATH_TO_TEST_IMAGES_DIR = pathlib.Path("images/test")
+PATH_TO_TEST_IMAGES_DIR = pathlib.Path("images/train")
 TEST_IMAGE_PATHS = list(PATH_TO_TEST_IMAGES_DIR.glob("*.jpg"))
 
 
@@ -30,7 +30,7 @@ def main():
         print(image_path)
         count = re.findall(r'[^\/]+(?=\.)', str(image_path))
         writer = Writer(
-            '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/test/' +
+            '/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/images/train/' +
                 count[0] + '.jpg', 256, 256)
         show_inference(model, image_path, writer, count[0])
         print(total_count)
@@ -39,7 +39,7 @@ def main():
 
 
 def load_model():
-    model_dir = "checkpoints/upperbound_1/exported_models/saved_model"
+    model_dir = "checkpoints/lowerbound_1/exported_models/saved_model"
     model = tf.saved_model.load(str(model_dir))
     return model
 
@@ -74,7 +74,7 @@ def show_inference(model, image_path, writer, count):
 
         if output_dict['detection_scores'][x] > 0.5:
             writer.addObject(label_name, xmin, ymin, xmax, ymax)
-    # writer.save('/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/detected_images/retraining/upperbound_test_xml/' + str(count) + '.xml')
+    writer.save('/Users/chadd/Documents/Chadd/Work/DSO/Model_Re-training/TensorFlow/workspace/training/detected_images/retraining/lowerbound_train_xml/' + str(count) + '.xml')
 
     file.close()
 

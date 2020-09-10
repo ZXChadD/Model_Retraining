@@ -4,6 +4,7 @@ utilites/
 images/
 detected_images/
 archive/
+exported_models/
 checkpoints/
 scripts/cifar-10-batches-py/
 try/
